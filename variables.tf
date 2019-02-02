@@ -11,6 +11,11 @@ variable "key_name" {
   description = "The AWS key pair to use for resources"
 }
 
+variable "public_subnet_ids" {
+  default     = []
+  description = "The list of public subnets to populate."
+}
+
 variable "private_subnets_ids" {
   default = []
   description = "The list of private subnets to populate"
