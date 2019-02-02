@@ -1,6 +1,6 @@
 variable "region" {
   description = "The AWS region"
-  default = "eu-central-1"
+  default     = "eu-central-1"
 }
 
 variable "environment" {
@@ -17,19 +17,20 @@ variable "public_subnet_ids" {
 }
 
 variable "private_subnets_ids" {
-  default = []
+  default     = []
   description = "The list of private subnets to populate"
 }
 
 variable "ami" {
   description = "The AMIs (ubuntu) to use for API instances"
+
   default = {
-  "eu-central-1" = "ami-0bdf93799014acdc4"
- }
+    "eu-central-1" = "ami-0bdf93799014acdc4"
+  }
 }
 
 variable "instance_type" {
-  default = "t2.micro"
+  default     = "t2.micro"
   description = "The instance type to launch"
 }
 
@@ -38,6 +39,6 @@ variable "vpc_id" {
 }
 
 variable "api_instance_count" {
-  default = 2
+  default     = 2
   description = "The number of API instances to launch"
 }
