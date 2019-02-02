@@ -7,16 +7,16 @@ sudo npm install -g json-server
 sudo mkdir -p /opt/json-server
 sudo mkdir -p /opt/json-server/public
 
-# Write db.json
-sudo cat >/opt/json-server/index.json << "EOF"
-{
-  "posts": [
-    { "id": 1, "title": "json-server", "author": "typicode" }
-  ],
-  "comments": [
-    { "id": 1, "body": "some comment", "postId": 1 }
-  ],
-  "profile": { "name": "typicode" }
+# Write index.js
+sudo cat >/opt/json-server/index.js << "EOF"
+// index.js
+module.exports = () => {
+  const data = { users: [] }
+  // Create 1000 users
+  for (let i = 0; i < 1000; i++) {
+    data.users.push({ id: i, name: `user${i}` })
+  }
+  return data
 }
 EOF
 
@@ -41,7 +41,7 @@ EOF
 
 # Create server flags
 cat >/tmp/json_server_flags << EOF
-JSON_SERVER_FLAGS='--watch /opt/json-server/index.json --static /opt/json-server/public --routes /opt/json-server/routes.json --host 0.0.0.0 --port 80'
+JSON_SERVER_FLAGS='--watch /opt/json-server/index.js --static /opt/json-server/public --routes /opt/json-server/routes.json --host 0.0.0.0 --port 80'
 EOF
 
 # Write systemd service
