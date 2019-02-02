@@ -16,7 +16,7 @@ variable "public_subnet_ids" {
   description = "The list of public subnets to populate."
 }
 
-variable "private_subnets_ids" {
+variable "private_subnet_ids" {
   default     = []
   description = "The list of private subnets to populate"
 }
