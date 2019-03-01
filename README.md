@@ -1,6 +1,6 @@
 # AWS API service module for Terraform
 
-A lightweight API service module for The Terraform Book.
+A lightweight API service module.
 
 ## Usage
 
@@ -34,6 +34,3 @@ module](https://github.com/edesibe/tf_vpc).
 
 See `interface.tf` for additional configurable variables.
 
-## License
-
-MIT
