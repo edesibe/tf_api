@@ -23,7 +23,7 @@ resource "aws_instance" "api" {
 
 resource "aws_elb" "api" {
   name            = "${var.environment}-api-elb"
-  subnets         = ["${var.public_subnet_ids.*}"]
+  subnets         = ["${var.public_subnet_ids[1]}"]
   security_groups = ["${aws_security_group.api_inbound_sg.id}"]
 
   listener {
