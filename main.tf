@@ -7,7 +7,6 @@ resource "aws_instance" "api" {
   instance_type = "${var.instance_type}"
   key_name      = "${var.key_name}"
   subnet_id     = "${element(var.private_subnet_ids, count.index)}"
-  #subnet_id     = "${var.public_subnet_ids[1]}"
   user_data     = "${file("${path.module}/files/api_bootstrap.sh")}"
 
   vpc_security_group_ids = [
@@ -23,7 +22,7 @@ resource "aws_instance" "api" {
 
 resource "aws_elb" "api" {
   name            = "${var.environment}-api-elb"
-  subnets         = ["${var.public_subnet_ids[1]}"]
+  subnets         = ["${var.public_subnet_ids}"]
   security_groups = ["${aws_security_group.api_inbound_sg.id}"]
 
   listener {
