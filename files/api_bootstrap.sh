@@ -34,7 +34,7 @@ sudo cat >/opt/json-server/public/index.html << "EOF"
     <title>API service</title>
   </head>
   <body>
-    <h1>The Terraform Book API service</h1>
+    <h1>API service</h1>
   </body>
 </html>
 EOF
